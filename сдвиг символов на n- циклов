@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+void sdvig(char str1[], int num);
+
+
+int main()
+{
+	setlocale(LC_ALL, "RUS");
+	char str[20];
+	
+	gets_s(str);
+	int num;
+	cout << "Введите количество циклов" << endl;
+	cin >> num;
+	sdvig(str, num);
+	cout << str;
+}
+void sdvig(char str1[], int num)
+{
+	int endInd;
+	char endSymb;
+	for (int j = 0; j <= num; j++)
+	{
+		int i = 0;
+		while (str1[i] != '\0')
+		{
+			if (str1[i + 1] == '\0')
+			{
+				endSymb = str1[i];
+				int x = i;
+				while (x != 0)
+				{
+					str1[x] = str1[x - 1];
+					x--;
+				}
+				str1[0] = endSymb;
+			}
+			i++;
+		}
+	}
+}
